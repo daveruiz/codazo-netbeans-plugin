@@ -20,9 +20,18 @@ abstract class CodazoService {
 	public	static String		format = "json";
 
 	/**
+	 * Request code
+	 */
+
+	public static String		get(String id) throws Exception {
+		CodazoResponse response = api( "get/"+id, format, null );
+		return response.code;
+	}
+
+	/**
 	 * Calls save method
 	 */
-	public static String		getShortUrl(String code, CodazoOptions options) throws Exception {
+	public static String		save(String code, CodazoOptions options) throws Exception {
 		String postdata = "";
 
 		postdata += "code=" + URLEncoder.encode(code, encoding);
@@ -51,7 +60,7 @@ abstract class CodazoService {
 		conn.setDoOutput( true );
 
 		if ( data != null ) {
-			conn.setRequestMethod( "PUT" ); // TODO: switch with method
+			conn.setRequestMethod( "POST" ); // TODO: switch with method
 			OutputStreamWriter wr;
 			wr = new OutputStreamWriter( conn.getOutputStream() );
 			wr.write( data );

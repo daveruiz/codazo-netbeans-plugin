@@ -6,7 +6,12 @@ package net.daveruiz.nbplugin.codazo;
  */
 public class CodazoResponse {
 
-	public String url = null;
+	// Method save
+	public String	uid;
+	public String	url;
+
+	// Method get
+	public String	code;
 
 	public CodazoResponse() {}
 

@@ -67,7 +67,7 @@ public final class CodazoAction implements ActionListener {
 				// Do request
 				String url;
 				try {
-					url = CodazoService.getShortUrl(code, options);
+					url = CodazoService.save(code, options);
 				} catch (Exception err) {
 					error( err.toString() );
 					return;
